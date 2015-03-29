@@ -1,0 +1,48 @@
+
+module ietf-ipspace {
+	namespace "urn:ietf:params:xml:ns:yang:ietf-ipspace";
+
+	prefix ipspace;
+
+	organization "ipspace.net";
+	contact "me@ipspace.net";
+
+	description "The module for entities impl the ipspace system";
+	revision "2015-03-31" {
+		description "Initial revision.";
+		reference "RFC 6087 RESTCONF Protocol.";
+	}
+	container system {
+		description "Container for ipspace system.";
+		leaf host-name {
+			type string;
+			description "Hostname for the system";
+		}
+		list interface {
+			key "name";
+			description "List of interfaces in the system";
+			leaf name {
+				type string;
+				description "Name of interface.";
+			}
+			choice interface-type {
+				description "Choice of interface type";
+				leaf FastEthernet {
+					type empty;
+					description "Fast Ethernet Interface (100M)";
+				}
+				leaf GigEthernet {
+					type empty;
+					description "Gigabit Ethernet Interface (1000M)";
+				}
+			}
+			leaf description {
+				type string;
+				description "Interface description.";
+			}
+			leaf mtu {
+				type int32;
+			}
+		}
+	}
+}
