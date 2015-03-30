@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<data>
   <system>
     <host-name>ipspace</host-name>
     <interface>
@@ -9,4 +8,3 @@
       <mtu>1500</mtu>
     </interface>
   </system>
-</data>
