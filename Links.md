@@ -14,5 +14,4 @@
 
 7.	An architecture for network management using NETCONF and YANG [RFC6244](http://tools.ietf.org/html/rfc6244)
 
-8.	
 
