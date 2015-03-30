@@ -8,10 +8,13 @@
 
 4.	Python validation tool [PYANG](https://github.com/mbj4668/pyang)
 
-5.	NETCON Central visual template aid [IETF YANG Template](http://www.netconfcentral.org/modules/ietf-yang-library/2014-09-26)
+5.	NETCONF Central visual template aid [IETF YANG Template](http://www.netconfcentral.org/modules/ietf-yang-library/2014-09-26)
 
 6.	Common YANG Data Types [RFC6021](http://www.netconfcentral.org/modules/ietf-yang-library/2014-09-26)
 
 7.	An architecture for network management using NETCONF and YANG [RFC6244](http://tools.ietf.org/html/rfc6244)
 
+8.	A website dedicated to YANG and associated tooling [YANG central](http://yang-central.org)
+
+9.	Mapping YANG to Document Schema Definition Languages and Validating NETCONF Content [RFC6110](https://tools.ietf.org/html/rfc6110)
 

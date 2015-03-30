@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <system>
+    <host-name>ipspace</host-name>
+    <interface>
+      <name>Fast01</name>
+      <GigEthernet/>
+      <description>Test</description>
+      <mtu>1500</mtu>
+    </interface>
+  </system>
+</data>

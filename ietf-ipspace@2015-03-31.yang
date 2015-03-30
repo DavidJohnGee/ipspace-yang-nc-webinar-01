@@ -1,8 +1,8 @@
 
-module ietf-ipspace {
-	namespace "urn:ietf:params:xml:ns:yang:ietf-ipspace";
-
-	prefix ipspace;
+module ipspace {
+	namespace "http://ipspace.net/ipspace";
+	
+	prefix "ietf-ipspace";
 
 	organization "ipspace.net";
 	contact "me@ipspace.net";
