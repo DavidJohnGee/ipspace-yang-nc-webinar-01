@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
-  <system xmlns="urn:ietf:params:xml:ns:yang:ietf-ipspace">
+<data>
+  <system>
     <host-name>ipspace</host-name>
     <interface>
       <name>Fast01</name>
-      <FastEthernet/>
+      <GigEthernet/>
       <description>Test</description>
       <mtu>1500</mtu>
     </interface>

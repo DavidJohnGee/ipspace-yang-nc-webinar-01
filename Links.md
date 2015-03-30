@@ -17,4 +17,3 @@
 8.	A website dedicated to YANG and associated tooling [YANG central](http://yang-central.org)
 
 9.	Mapping YANG to Document Schema Definition Languages and Validating NETCONF Content [RFC6110](https://tools.ietf.org/html/rfc6110)
-
