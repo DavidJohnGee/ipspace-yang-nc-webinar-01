@@ -2,7 +2,6 @@
 
 from lxml import etree
 
-#import ietfipspace Python file
 import ietfipspace
 
 ifacetype = ""
@@ -20,7 +19,7 @@ print rootObject.get_host_name()
 interfaces = rootObject.get_interface()
 
 print "\n\n===== Print settings for each interface ====="
-#Iterate through them and print off detail
+# Iterate through them and print off detail
 for interface in interfaces:
     print "Interface name is:\t\t" + interface.get_name()
     print "Interface description is:\t" + interface.get_description()

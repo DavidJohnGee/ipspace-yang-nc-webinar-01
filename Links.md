@@ -17,3 +17,9 @@
 8.	A website dedicated to YANG and associated tooling [YANG central](http://yang-central.org)
 
 9.	Mapping YANG to Document Schema Definition Languages and Validating NETCONF Content [RFC6110](https://tools.ietf.org/html/rfc6110)
+
+10.	Overview of the 2002 IAB Network Management Workshop [RFC3535](https://tools.ietf.org/html/rfc3535)
+
+11.	Guidelines for Authors and Reviewers of YANG Data Model Documents [RFC6087](https://tools.ietf.org/html/rfc6087)
+
+12.	NETCONF Event notifications [RFC5277](https://tools.ietf.org/html/rfc5277)

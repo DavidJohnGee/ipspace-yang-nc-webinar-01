@@ -2,21 +2,20 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Mon Mar 30 17:24:50 2015 by generateDS.py version 2.15a.
+# Generated Mon Mar 30 22:49:47 2015 by generateDS.py version 2.15a.
 #
 # Command line options:
 #   ('-f', '')
 #   ('-o', 'ietfipspace.py')
-#   ('--export', 'write etree')
 #
 # Command line arguments:
 #   ietfipspace.xsd
 #
 # Command line:
-#   ../../../Downloads/generateDS-2.15a/generateDS.py -f -o "ietfipspace.py" --export="write etree" ietfipspace.xsd
+#   /usr/local/bin/generateDS.py -f -o "ietfipspace.py" ietfipspace.xsd
 #
 # Current working directory (os.getcwd()):
-#   IPSpaceYNCWeb01
+#   WebinarFiles
 #
 
 import sys
@@ -694,21 +693,38 @@ class system(GeneratedsSuper):
             interface_.export(outfile, level, namespace_, name_='interface', pretty_print=pretty_print)
         for obj_ in self.anytypeobjs_:
             obj_.export(outfile, level, namespace_, pretty_print=pretty_print)
-    def to_etree(self, parent_element=None, name_='system', mapping_=None):
-        if parent_element is None:
-            element = etree_.Element('{http://ipspace.net/ipspace}' + name_)
-        else:
-            element = etree_.SubElement(parent_element, '{http://ipspace.net/ipspace}' + name_)
+    def exportLiteral(self, outfile, level, name_='system'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
         if self.host_name is not None:
-            host_name_ = self.host_name
-            etree_.SubElement(element, '{http://ipspace.net/ipspace}host-name').text = self.gds_format_string(host_name_)
+            showIndent(outfile, level)
+            outfile.write('host_name=%s,\n' % quote_python(self.host_name).encode(ExternalEncoding))
+        showIndent(outfile, level)
+        outfile.write('interface=[\n')
+        level += 1
         for interface_ in self.interface:
-            interface_.to_etree(element, name_='interface', mapping_=mapping_)
-        for obj_ in self.anytypeobjs_:
-            obj_.to_etree(element)
-        if mapping_ is not None:
-            mapping_[self] = element
-        return element
+            showIndent(outfile, level)
+            outfile.write('model_.interfaceType(\n')
+            interface_.exportLiteral(outfile, level, name_='interfaceType')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('anytypeobjs_=[\n')
+        level += 1
+        for anytypeobjs_ in self.anytypeobjs_:
+            anytypeobjs_.exportLiteral(outfile, level)
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -849,37 +865,68 @@ class interfaceType(GeneratedsSuper):
             outfile.write('<%smtu>%s</%smtu>%s' % (namespace_, self.gds_format_integer(self.mtu, input_name='mtu'), namespace_, eol_))
         for obj_ in self.anytypeobjs_:
             obj_.export(outfile, level, namespace_, pretty_print=pretty_print)
-    def to_etree(self, parent_element=None, name_='interfaceType', mapping_=None):
-        if parent_element is None:
-            element = etree_.Element('{http://ipspace.net/ipspace}' + name_)
-        else:
-            element = etree_.SubElement(parent_element, '{http://ipspace.net/ipspace}' + name_)
+    def exportLiteral(self, outfile, level, name_='interfaceType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
         if self.name is not None:
-            name_ = self.name
-            etree_.SubElement(element, '{http://ipspace.net/ipspace}name').text = self.gds_format_string(name_)
+            showIndent(outfile, level)
+            outfile.write('name=%s,\n' % quote_python(self.name).encode(ExternalEncoding))
         if self.FastEthernet is not None:
-            FastEthernet_ = self.FastEthernet
-            FastEthernet_.to_etree(element, name_='FastEthernet', mapping_=mapping_)
-        for obj_ in self.anytypeobjs_:
-            obj_.to_etree(element)
+            showIndent(outfile, level)
+            outfile.write('FastEthernet=model_.FastEthernetType(\n')
+            self.FastEthernet.exportLiteral(outfile, level, name_='FastEthernet')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        showIndent(outfile, level)
+        outfile.write('anytypeobjs_=[\n')
+        level += 1
+        for anytypeobjs_ in self.anytypeobjs_:
+            anytypeobjs_.exportLiteral(outfile, level)
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
         if self.GigEthernet is not None:
-            GigEthernet_ = self.GigEthernet
-            GigEthernet_.to_etree(element, name_='GigEthernet', mapping_=mapping_)
-        for obj_ in self.anytypeobjs_:
-            obj_.to_etree(element)
-        for obj_ in self.anytypeobjs_:
-            obj_.to_etree(element)
+            showIndent(outfile, level)
+            outfile.write('GigEthernet=model_.GigEthernetType(\n')
+            self.GigEthernet.exportLiteral(outfile, level, name_='GigEthernet')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        showIndent(outfile, level)
+        outfile.write('anytypeobjs_=[\n')
+        level += 1
+        for anytypeobjs_ in self.anytypeobjs_:
+            anytypeobjs_.exportLiteral(outfile, level)
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('anytypeobjs_=[\n')
+        level += 1
+        for anytypeobjs_ in self.anytypeobjs_:
+            anytypeobjs_.exportLiteral(outfile, level)
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
         if self.description is not None:
-            description_ = self.description
-            etree_.SubElement(element, '{http://ipspace.net/ipspace}description').text = self.gds_format_string(description_)
+            showIndent(outfile, level)
+            outfile.write('description=%s,\n' % quote_python(self.description).encode(ExternalEncoding))
         if self.mtu is not None:
-            mtu_ = self.mtu
-            etree_.SubElement(element, '{http://ipspace.net/ipspace}mtu').text = self.gds_format_integer(mtu_)
-        for obj_ in self.anytypeobjs_:
-            obj_.to_etree(element)
-        if mapping_ is not None:
-            mapping_[self] = element
-        return element
+            showIndent(outfile, level)
+            outfile.write('mtu=%d,\n' % self.mtu)
+        showIndent(outfile, level)
+        outfile.write('anytypeobjs_=[\n')
+        level += 1
+        for anytypeobjs_ in self.anytypeobjs_:
+            anytypeobjs_.exportLiteral(outfile, level)
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -962,14 +1009,16 @@ class FastEthernetType(GeneratedsSuper):
         pass
     def exportChildren(self, outfile, level, namespace_='ietf-ipspace:', name_='FastEthernetType', fromsubclass_=False, pretty_print=True):
         pass
-    def to_etree(self, parent_element=None, name_='FastEthernetType', mapping_=None):
-        if parent_element is None:
-            element = etree_.Element('{http://ipspace.net/ipspace}' + name_)
-        else:
-            element = etree_.SubElement(parent_element, '{http://ipspace.net/ipspace}' + name_)
-        if mapping_ is not None:
-            mapping_[self] = element
-        return element
+    def exportLiteral(self, outfile, level, name_='FastEthernetType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -1023,14 +1072,16 @@ class GigEthernetType(GeneratedsSuper):
         pass
     def exportChildren(self, outfile, level, namespace_='ietf-ipspace:', name_='GigEthernetType', fromsubclass_=False, pretty_print=True):
         pass
-    def to_etree(self, parent_element=None, name_='GigEthernetType', mapping_=None):
-        if parent_element is None:
-            element = etree_.Element('{http://ipspace.net/ipspace}' + name_)
-        else:
-            element = etree_.SubElement(parent_element, '{http://ipspace.net/ipspace}' + name_)
-        if mapping_ is not None:
-            mapping_[self] = element
-        return element
+    def exportLiteral(self, outfile, level, name_='GigEthernetType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)

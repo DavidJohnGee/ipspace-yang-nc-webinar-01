@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-  <system>
+  <system xmlns="urn:ietf:params:xml:ns:yang:ietf-ipspace">
     <host-name>ipspace</host-name>
     <interface>
       <name>Fast01</name>
