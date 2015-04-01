@@ -13,22 +13,22 @@ __Links.md__
 File containing useful links from the webinar including RFCs
 
 __Python-NETCONF-Demo01.py__	
-Demo Python file with. It changes a hostname on Junos via NETCONF
+This Python file changes a hostname on Junos via NETCONF
 
 __Python-NETCONF-Demo02.py__ 	
-Demo Python file with. It gets terse interface configuration on Junos via NETCONF
+This Python file gets terse interface configuration on Junos via NETCONF
 
 __Python-NETCONF-Demo03.py__ 	
-Demo Python file with. It imports the automatically generated code from GenerateDS and imports NETCONF data
+This Python file imports the automatically generated code from GenerateDS and imports NETCONF data
 
 __YANG 101 Notes 01 - David-Gee - ipengineer.net__
 This is a file containing my own YANG 101 notes. I found it serves as a helpful reminder when building YANG files
 
 __ietf-ipspace@2015-03-31.yang__
-This is our demo YANG file and it also runs on ConfD
+This is our demo YANG file and it also runs on ConfD. Check it with pyang to validate and also with the --ietf flag :) Download and fix!
 
 __ietfipspace.py__
-This file is automtically generated from our YANG file XSD
+This file is automtically generated from our YANG file XSD. It contains 'getters' and 'setters' for our YANG nodes
 
 __ietfipspace.xsd__
 Automatically generated XSD file derived from our YANG file
